@@ -68,3 +68,6 @@ vim.o.scrolloff = 10
 
 -- Ask the user for stuff like unsaved changes
 vim.o.confirm = true
+
+-- Terminal shell
+vim.o.shell = 'fish'
