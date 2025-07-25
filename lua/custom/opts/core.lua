@@ -70,4 +70,23 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- Terminal shell
-vim.o.shell = 'fish'
+-- vim.o.shell = 'zsh'
+
+-- Fold config moved to ufo.lua
+
+-- Term colors
+vim.opt.termguicolors = true
+
+-- Tmux Clipboard fix
+vim.g.clipboard = {
+  name = 'wl-clipboard (Wayland)',
+  copy = {
+    ['+'] = 'wl-copy',
+    ['*'] = 'wl-copy',
+  },
+  paste = {
+    ['+'] = 'wl-paste --no-newline',
+    ['*'] = 'wl-paste --no-newline',
+  },
+  cache_enabled = true,
+}

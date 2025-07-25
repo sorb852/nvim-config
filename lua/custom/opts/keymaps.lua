@@ -33,10 +33,23 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', 'H', function()
-  require('bufferline').cycle(-1)
-end, { desc = 'Move to the previous buffer' })
+-- NOTE: Use with bufferline
+-- vim.keymap.set('n', 'H', function()
+--   require('bufferline').cycle(-1)
+-- end, { desc = 'Move to the previous buffer' })
+-- vim.keymap.set('n', 'L', function()
+--   require('bufferline').cycle(1)
+-- end, { desc = 'Move to the next buffer' })
 
-vim.keymap.set('n', 'L', function()
-  require('bufferline').cycle(1)
-end, { desc = 'Move to the next buffer' })
+vim.keymap.set('n', '<a-h>', function()
+  require('bufferline').move(-1)
+end, { desc = 'Move buffer to the left' })
+
+vim.keymap.set('n', '<a-l>', function()
+  require('bufferline').move(1)
+end, { desc = 'Move buffer to the right' })
+
+-- Oil
+vim.keymap.set('n', '<space>e', function()
+  require('oil').toggle_float()
+end, { desc = 'Open Oil' })
