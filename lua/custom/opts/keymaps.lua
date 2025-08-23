@@ -14,7 +14,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<C-w>.', '<cmd>qa<CR>', { desc = 'Exit Neovim [:qa]' })
 
 -- Close buffer
-vim.keymap.set('n', '<space>bd', function()
+vim.keymap.set('n', '<leader>bd', function()
   require('mini.bufremove').delete(0, false)
 end, { desc = '[B]uffer [D]elete' })
 
@@ -49,7 +49,37 @@ vim.keymap.set('n', '<a-l>', function()
   require('bufferline').move(1)
 end, { desc = 'Move buffer to the right' })
 
+--- @alias FileExplorerOptions
+--- | 'neo-tree'
+--- | 'oil'
+
+--- @type FileExplorerOptions
+local current = 'oil'
+
+vim.api.nvim_create_user_command('SetFileExplorer', function(opts)
+  if opts.fargs[1] == 'neo-tree' then
+    current = 'neo-tree'
+  elseif opts.fargs[1] == 'oil' then
+    current = 'oil'
+  else
+    error 'Please provide a valid file explorer'
+  end
+end, { nargs = 1 })
+
+vim.api.nvim_create_user_command('ToggleFileExplorer', function()
+  if current == 'neo-tree' then
+    vim.cmd 'Neotree close'
+    current = 'oil'
+  else
+    current = 'neo-tree'
+  end
+end, {})
+
 -- Oil
-vim.keymap.set('n', '<space>e', function()
-  require('oil').toggle_float()
-end, { desc = 'Open Oil' })
+vim.keymap.set('n', '<leader>e', function()
+  if current == 'oil' then
+    require('oil').toggle_float()
+  else
+    vim.cmd 'Neotree reveal'
+  end
+end, { desc = 'Open file explorer' })

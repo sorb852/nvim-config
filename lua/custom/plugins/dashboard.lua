@@ -27,7 +27,7 @@ return {
 
     dashboard.section.header.val = logos[current_logo]
 
-    dashboard.section.header.opts.hl = 'Normal'
+    dashboard.section.header.opts.hl = 'Function'
     dashboard.section.buttons.val = {
       dashboard.button('n', 'New file', '<cmd>ene<CR>'),
       dashboard.button('b', 'Browse files', '<cmd>Oil<CR>'),

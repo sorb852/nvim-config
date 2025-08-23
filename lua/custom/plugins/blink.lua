@@ -20,6 +20,9 @@ return {
       opts = {},
     },
     'folke/lazydev.nvim',
+    {
+      'Exafunction/codeium.nvim',
+    },
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -38,10 +41,19 @@ return {
     },
 
     sources = {
+      -- yo codeium can you combine the two snippets below and work together?
+
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
+
+      -- This is for the config where the codeium virtual text is off
+      -- default = { 'lsp', 'path', 'snippets', 'buffer', 'codeium', 'lazydev' },
+      -- providers = {
+      --   lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+      --   codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
+      -- },
     },
 
     snippets = { preset = 'luasnip' },

@@ -5,11 +5,11 @@ return {
   opts = {
     -- Document existing key chains
     spec = {
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>b', group = '[B]uffer' },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>S', group = '[S]ession' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>s', group = '[S]earch', icon = '' },
+      { '<leader>b', group = '[B]uffer', icon = '󰈔' },
+      { '<leader>t', group = '[T]oggle', icon = '󰺟' },
+      { '<leader>S', group = '[S]ession', icon = '󰉉' },
+      { '<leader>h', group = 'Git [H]unk', icon = '', mode = { 'n', 'v' } },
     },
 
     delay = 0,
