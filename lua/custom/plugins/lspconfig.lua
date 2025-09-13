@@ -126,6 +126,9 @@ return {
             return require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc', 'deno.lock')(fname) or nil
           end,
         },
+        svelte = {},
+        html = {},
+        tailwindcss = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -144,6 +147,8 @@ return {
       }
       local extra_stuff = {
         'stylua',
+        'prettier',
+        'eslint',
       }
       require('mason-tool-installer').setup {
         ensure_installed = extra_stuff,
