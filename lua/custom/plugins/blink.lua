@@ -17,12 +17,16 @@ return {
         end
         return 'make install_jsregexp'
       end)(),
-      opts = {},
+      opts = function()
+        require('luasnip.loaders.from_lua').lazy_load {
+          paths = vim.fn.stdpath 'config' .. '/lua/snippets',
+        }
+      end,
     },
     'folke/lazydev.nvim',
-    {
-      'Exafunction/codeium.nvim',
-    },
+    -- {
+    --   'Exafunction/codeium.nvim',
+    -- },
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -41,8 +45,6 @@ return {
     },
 
     sources = {
-      -- yo codeium can you combine the two snippets below and work together?
-
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },

@@ -118,9 +118,11 @@ return {
             return util.root_pattern('tsconfig.json', 'jsconfig.json')(fname)
           end,
         },
+        qmlls = {},
         rust_analyzer = {},
         jsonls = {},
         glsl_analyzer = {},
+        prismals = {},
         denols = {
           root_dir = function(fname)
             return require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc', 'deno.lock')(fname) or nil
@@ -128,6 +130,7 @@ return {
         },
         svelte = {},
         html = {},
+        cssls = {},
         tailwindcss = {},
 
         lua_ls = {
