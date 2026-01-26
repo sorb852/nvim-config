@@ -119,7 +119,32 @@ return {
           end,
         },
         qmlls = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              cargo = {
+                allFeatures = false,
+                features = {},
+                loadOutDirsFromCheck = false,
+              },
+              procMacro = {
+                enable = false,
+              },
+              diagnostics = {
+                enable = false,
+              },
+              checkOnSave = {
+                enable = false,
+              },
+              completion = {
+                autoimport = false,
+              },
+              semanticHighlighting = {
+                enable = false,
+              },
+            },
+          },
+        },
         jsonls = {},
         glsl_analyzer = {},
         prismals = {},

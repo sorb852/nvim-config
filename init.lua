@@ -1,6 +1,7 @@
 require 'custom.opts.core'
 require 'custom.opts.keymaps'
 require 'custom.opts.autocommands'
+require 'custom.opts.usrcommands'
 
 -- Bootstrap lazy
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
